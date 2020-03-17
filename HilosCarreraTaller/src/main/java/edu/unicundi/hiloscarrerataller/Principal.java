@@ -16,9 +16,5 @@ public class Principal {
     public void inicio(){
         Ventana v = new Ventana();
         v.setVisible(true); //se hace visible la ventana
-        /*Thread h1 = new Hilo(1,"1");
-        Thread h2 = new Hilo(2,"2");
-        h1.start();        
-        h2.start();*/
     }
 }

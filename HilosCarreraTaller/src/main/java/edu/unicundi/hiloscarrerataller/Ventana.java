@@ -6,6 +6,7 @@
 package edu.unicundi.hiloscarrerataller;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +27,13 @@ public class Ventana extends JFrame {
     private JPanel panel;
 
     private JLabel equipo1J1, equipo1J2, equipo1J3;
+    
+    private JLabel equipo2J1, equipo2J2, equipo2J3;
+    
+    private JLabel equipo3J1, equipo3J2, equipo3J3;
 
+    private Thread j1, j2, j3, j4, j5, j6, j7, j8,j9;
+    
     public Ventana() {
         //Se establece el tamaño de la ventana
         this.setSize(1300, 500);
@@ -44,13 +51,13 @@ public class Ventana extends JFrame {
 
     public Ventana(int jugador, int x, int y){
         if(jugador==1) {
-            ubicacionEquipo1J1(x, 150);
+            ubicacionEquipo1J1(x);
         }
         if(jugador==2){
-            ubicacionEquipo1J2(x, y);
+            ubicacionEquipo1J2(x);
         }
         if(jugador==3){
-            ubicacionEquipo1J3(x, y);
+            ubicacionEquipo1J3(x);
         }
     }
     
@@ -96,19 +103,49 @@ public class Ventana extends JFrame {
         panel.add(equipo1J1);
     }
 
-    public void ubicacionEquipo1J1(int x1, int y1) {
-        //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
-        equipo1J1.setBounds(x1, 150, 50, 50);
+    public void ubicacionEquipo1J1(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo1J1.setLocation(x1, 150);
     }
 
-    public void ubicacionEquipo1J2(int x1, int y1) {
-        //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
-        equipo1J2.setBounds(333, 150, 50, 50);
+    public void ubicacionEquipo1J2(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo1J2.setLocation(x1, 150);
     }
 
-    public void ubicacionEquipo1J3(int x1, int y1) {
-        //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
-        equipo1J3.setBounds(666, 150, 50, 50);
+    public void ubicacionEquipo1J3(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo1J3.setLocation(x1, 150);
+    }
+    
+    public void ubicacionEquipo2J1(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo2J1.setLocation(x1, 250);
+    }
+
+    public void ubicacionEquipo2J2(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo2J2.setLocation(x1, 250);
+    }
+
+    public void ubicacionEquipo2J3(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo2J3.setLocation(x1, 250);
+    }
+    
+    public void ubicacionEquipo3J1(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo3J1.setLocation(x1, 350);
+    }
+
+    public void ubicacionEquipo3J2(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo3J2.setLocation(x1, 350);
+    }
+
+    public void ubicacionEquipo3J3(int x1) {
+        //Se modifica la posicion del JLabel
+        this.equipo3J3.setLocation(x1, 350);
     }
 
     private void creacionEquipo1() {
@@ -153,19 +190,19 @@ public class Ventana extends JFrame {
         //Se crea una imagen para el equipo 1
         ImageIcon imagenEquipo2 = new ImageIcon("equipo2-1.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo2 = new JLabel();
+        equipo2J1 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
-        equipo2.setBounds(0, 250, 50, 50);
+        equipo2J1.setBounds(0, 250, 50, 50);
         //Se estable el tamaño de la imagen
-        equipo2.setIcon(new ImageIcon(imagenEquipo2.getImage().getScaledInstance(equipo2.getWidth(), equipo2.getHeight(), Image.SCALE_SMOOTH)));
+        equipo2J1.setIcon(new ImageIcon(imagenEquipo2.getImage().getScaledInstance(equipo2J1.getWidth(), equipo2J1.getHeight(), Image.SCALE_SMOOTH)));
         //Se agrega al panel
-        panel.add(equipo2);
+        panel.add(equipo2J1);
 
         //Jugador 2
         //Se crea una imagen para el equipo 2
         ImageIcon imagenEquipo2J2 = new ImageIcon("equipo2-2.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo2J2 = new JLabel();
+        equipo2J2 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
         equipo2J2.setBounds(333, 250, 50, 50);
         //Se estable el tamaño de la imagen
@@ -177,7 +214,7 @@ public class Ventana extends JFrame {
         //Se crea una imagen para el equipo 2
         ImageIcon imagenEquipo2J3 = new ImageIcon("equipo2-3.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo2J3 = new JLabel();
+        equipo2J3 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
         equipo2J3.setBounds(666, 250, 50, 50);
         //Se estable el tamaño de la imagen
@@ -191,19 +228,19 @@ public class Ventana extends JFrame {
         //Se crea una imagen para el equipo 3
         ImageIcon imagenEquipo3 = new ImageIcon("equipo3-1.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo3 = new JLabel();
+        equipo3J1 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
-        equipo3.setBounds(0, 350, 50, 50);
+        equipo3J1.setBounds(0, 350, 50, 50);
         //Se estable el tamaño de la imagen
-        equipo3.setIcon(new ImageIcon(imagenEquipo3.getImage().getScaledInstance(equipo3.getWidth(), equipo3.getHeight(), Image.SCALE_SMOOTH)));
+        equipo3J1.setIcon(new ImageIcon(imagenEquipo3.getImage().getScaledInstance(equipo3J1.getWidth(), equipo3J1.getHeight(), Image.SCALE_SMOOTH)));
         //Se agrega al panel
-        panel.add(equipo3);
+        panel.add(equipo3J1);
 
         //Jugador 2
         //Se crea una imagen para el equipo 3
         ImageIcon imagenEquipo3J2 = new ImageIcon("equipo3-2.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo3J2 = new JLabel();
+        equipo3J2 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
         equipo3J2.setBounds(333, 350, 50, 50);
         //Se estable el tamaño de la imagen
@@ -215,7 +252,7 @@ public class Ventana extends JFrame {
         //Se crea una imagen para el equipo 3
         ImageIcon imagenEquipo3J3 = new ImageIcon("equipo3-3.jpg");
         //se crea una etiqueta para la imagen
-        JLabel equipo3J3 = new JLabel();
+        equipo3J3 = new JLabel();
         //Se establece la posicion en el eje X y Y, se estable el tamaño del ancho y alto
         equipo3J3.setBounds(666, 350, 50, 50);
         //Se estable el tamaño de la imagen
@@ -236,17 +273,32 @@ public class Ventana extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                ObjetoComun obj1 = new ObjetoComun(1, 1);
-                Thread h1 = new Hilo(obj1);
-                h1.start();        
                 
+                Equipo equipo1 = new Equipo(1);
+                Equipo equipo2 = new Equipo(2);
+                Equipo equipo3 = new Equipo(3);
+                
+                j1 = new Hilo(Ventana.this ,0,1,equipo1);
+                j2 = new Hilo(Ventana.this,333,2,equipo1);
+                j3 = new Hilo(Ventana.this,666,3,equipo1);
+                j4 = new Hilo(Ventana.this ,0,1,equipo2);
+                j5 = new Hilo(Ventana.this,333,2,equipo2);
+                j6 = new Hilo(Ventana.this,666,3,equipo2);
+                j7 = new Hilo(Ventana.this ,0,1,equipo3);
+                j8 = new Hilo(Ventana.this,333,2,equipo3);
+                j9 = new Hilo(Ventana.this,666,3,equipo3);
+                j1.start();        
+                j2.start();
+                j3.start();
+                j4.start();        
+                j5.start();
+                j6.start();
+                j7.start();        
+                j8.start();
+                j9.start();
             }
         };
 
         boton.addActionListener(accion);
-    }
-
-    private void accion() {
-
     }
 }
