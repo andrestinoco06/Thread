@@ -110,12 +110,16 @@ public class Ventana extends JFrame {
 
     public void ubicacionEquipo1J2(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo1J2.setLocation(x1, 150);
+        if(x1>=333){
+            this.equipo1J2.setLocation(x1, 150);
+        }
     }
 
     public void ubicacionEquipo1J3(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo1J3.setLocation(x1, 150);
+        if(x1>=666){
+            this.equipo1J3.setLocation(x1, 150);
+        }
     }
     
     public void ubicacionEquipo2J1(int x1) {
@@ -125,12 +129,16 @@ public class Ventana extends JFrame {
 
     public void ubicacionEquipo2J2(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo2J2.setLocation(x1, 250);
+        if(x1>=333){
+            this.equipo2J2.setLocation(x1, 250);
+        }
     }
 
     public void ubicacionEquipo2J3(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo2J3.setLocation(x1, 250);
+        if(x1>=666){
+            this.equipo2J3.setLocation(x1, 250);
+        }
     }
     
     public void ubicacionEquipo3J1(int x1) {
@@ -140,12 +148,16 @@ public class Ventana extends JFrame {
 
     public void ubicacionEquipo3J2(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo3J2.setLocation(x1, 350);
+        if(x1>=333){
+            this.equipo3J2.setLocation(x1, 350);
+        }
     }
 
     public void ubicacionEquipo3J3(int x1) {
         //Se modifica la posicion del JLabel
-        this.equipo3J3.setLocation(x1, 350);
+        if(x1>=666){
+            this.equipo3J3.setLocation(x1, 350);
+        }
     }
 
     private void creacionEquipo1() {

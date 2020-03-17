@@ -41,7 +41,7 @@ public class Hilo extends Thread {
 
     }
 
-    private synchronized void mover() {
+    private void mover() {
         if (equipo.equipo == 1) {
             if (jugador == 1) {
                 this.panel.ubicacionEquipo1J1(equipo.getPosicion());
@@ -77,31 +77,37 @@ public class Hilo extends Thread {
         }
     }
 
-    private int suma() {
+    private synchronized int suma() {
         try {
-            sleep(2000);
+            sleep(500);
         } catch (InterruptedException ex) {
             Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
         }
         int distancia = 0;
         int jugador = equipo.imprimirUbicacion();
         if (jugador == 1) {
-            do {
-                equipo.getPosicion();
-                distancia = (int) (Math.random() * 30 + 1);
-            } while (equipo.getPosicion() + distancia > 333);
+            if (equipo.getPosicion() >= 0 && equipo.getPosicion() <= 333) {
+                do {
+                    equipo.getPosicion();
+                    distancia = (int) (Math.random() * 30 + 1);
+                } while ((equipo.getPosicion() + distancia) > 333);
+            }
         }
         if (jugador == 2) {
-            do {
-                equipo.getPosicion();
-                distancia = (int) (Math.random() * 30 + 1);
-            } while (equipo.getPosicion() + distancia > 666);
+            if (equipo.getPosicion() >= 333 && equipo.getPosicion() <= 666) {
+                do {
+                    equipo.getPosicion();
+                    distancia = (int) (Math.random() * 30 + 1);
+                } while ((equipo.getPosicion() + distancia) > 666);
+            }
         }
         if (jugador == 3) {
-            do {
-                equipo.getPosicion();
-                distancia = (int) (Math.random() * 30 + 1);
-            } while (equipo.getPosicion() + distancia > 1000);
+            if (equipo.getPosicion() >= 666 && equipo.getPosicion() <= 1000) {
+                do {
+                    equipo.getPosicion();
+                    distancia = (int) (Math.random() * 30 + 1);
+                } while ((equipo.getPosicion() + distancia) > 999);
+            }
         }
         equipo.setPosicion(equipo.getPosicion() + distancia);
 
@@ -119,14 +125,12 @@ public class Hilo extends Thread {
         }
     }
 
-    private void inicio(int jugador) {
-        while (equipo.getPosicion() <= 1000) {
+    private synchronized void inicio(int jugador) {
+        while (true) {
             if (jugador == 1) {
                 int suma = suma();
                 if (suma >= 333) {
-
                     synchronized (equipo) {
-
                         equipo.notifyAll();
                     }
                     break;
@@ -136,7 +140,7 @@ public class Hilo extends Thread {
                     int suma = suma();
                     if (suma >= 666) {
                         synchronized (equipo) {
-                            equipo.notify();
+                            equipo.notifyAll();
                         }
                         break;
                     }
