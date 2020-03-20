@@ -18,22 +18,34 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
+ * Clase que se encarga de abrir el JFrame y el JPanel de la carrera
  * @author Johan Zambrano, Camilo Tinoco
  * 
  */
 public class Ventana extends JFrame {
-
+    /**
+     * JPanel para ejecutar el programa
+     */
     private JPanel panel;
-
+    /**
+    * JLabel del equipo 1, tendra el icono de cada atleta
+    */
     private JLabel equipo1J1, equipo1J2, equipo1J3;
-    
+    /**
+    * JLabel del equipo 2, tendra el icono de cada atleta
+    */
     private JLabel equipo2J1, equipo2J2, equipo2J3;
-    
+    /**
+    * JLabel del equipo 3, tendra el icono de cada atleta
+    */
     private JLabel equipo3J1, equipo3J2, equipo3J3;
-
+    /**
+     * Hilos globales para invocarlos dentro de la clase
+     */
     private Thread j1, j2, j3, j4, j5, j6, j7, j8,j9;
-    
+    /**
+     * Constructor principal
+     */
     public Ventana() {
         //Se establece el tamaño de la ventana
         this.setSize(1300, 500);
@@ -48,34 +60,28 @@ public class Ventana extends JFrame {
         //inicia componenetes
         iniciarComponentes();
     }
-
-    public Ventana(int jugador, int x, int y){
-        if(jugador==1) {
-            ubicacionEquipo1J1(x);
-        }
-        if(jugador==2){
-            ubicacionEquipo1J2(x);
-        }
-        if(jugador==3){
-            ubicacionEquipo1J3(x);
-        }
-    }
-    
+    /**
+     * Funcion que inicia los componentes
+     */
     private void iniciarComponentes() {
         creacionPanel();
         creacionBoton();
         creacionEscenario();
     }
-
+    /**
+     * Funcion que crea el escenario para la carrera, atleta, linea de meta
+     */
     private void creacionEscenario() {
         lineaMeta();
         creacionEquipo1();
         creacionEquipo2();
         creacionEquipo3();
     }
-
+    /**
+     * Inicializa el panel para agregarlo al JFrame
+     */
     private void creacionPanel() {
-        //Se crea el panel
+        //inicializa el panel
         panel = new JPanel();
         //Desactiva los layouts predeterminados del pnale
         panel.setLayout(null);
@@ -89,7 +95,9 @@ public class Ventana extends JFrame {
         //se agrega la etiqueta al panel
         panel.add(label);
     }
-
+    /**
+     * Asigna la linea de meta al escenario
+     */
     private void lineaMeta() {
         //Se crea una imagen para el equipo 1
         ImageIcon imagenEquipo1J1 = new ImageIcon("meta.jpg");
@@ -102,64 +110,93 @@ public class Ventana extends JFrame {
         //Se agrega al panel
         panel.add(equipo1J1);
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 1, atleta 1
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo1J1(int x1) {
         //Se modifica la posicion del JLabel
         this.equipo1J1.setLocation(x1, 150);
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 1, atleta 2
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo1J2(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=333){
             this.equipo1J2.setLocation(x1, 150);
         }
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 1, atleta 3
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo1J3(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=666){
             this.equipo1J3.setLocation(x1, 150);
         }
     }
-    
+    /**
+     * Modifica la posicion del JLabel del equipo 2, atleta 1
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo2J1(int x1) {
         //Se modifica la posicion del JLabel
         this.equipo2J1.setLocation(x1, 250);
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 2, atleta 2
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo2J2(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=333){
             this.equipo2J2.setLocation(x1, 250);
         }
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 2, atleta 3
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo2J3(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=666){
             this.equipo2J3.setLocation(x1, 250);
         }
     }
-    
+    /**
+     * Modifica la posicion del JLabel del equipo 3, atleta 1
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo3J1(int x1) {
         //Se modifica la posicion del JLabel
         this.equipo3J1.setLocation(x1, 350);
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 3, atleta 2
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo3J2(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=333){
             this.equipo3J2.setLocation(x1, 350);
         }
     }
-
+    /**
+     * Modifica la posicion del JLabel del equipo 3, atleta 3
+     * @param x1 coordenada en x para moverlo
+     */
     public void ubicacionEquipo3J3(int x1) {
         //Se modifica la posicion del JLabel
         if(x1>=666){
             this.equipo3J3.setLocation(x1, 350);
         }
     }
-
+    /**
+     * Inicializa todo lo que el equipo 1 necesita para el escenario
+     */
     private void creacionEquipo1() {
         //Jugador 1
         //Se crea una imagen para el equipo 1
@@ -197,7 +234,9 @@ public class Ventana extends JFrame {
         //Se agrega al panel
         panel.add(equipo1J3);
     }
-
+    /**
+     * Inicializa todo lo que el equipo 2 necesita para el escenario
+     */
     private void creacionEquipo2() {
         //Se crea una imagen para el equipo 1
         ImageIcon imagenEquipo2 = new ImageIcon("equipo2-1.jpg");
@@ -235,7 +274,9 @@ public class Ventana extends JFrame {
         panel.add(equipo2J3);
 
     }
-
+    /**
+     * Inicializa todo lo que el equipo 3 necesita para el escenario
+     */
     private void creacionEquipo3() {
         //Se crea una imagen para el equipo 3
         ImageIcon imagenEquipo3 = new ImageIcon("equipo3-1.jpg");
@@ -272,7 +313,9 @@ public class Ventana extends JFrame {
         //Se agrega al panel
         panel.add(equipo3J3);
     }
-
+    /**
+     * Crea el boton para iniciar la carrera
+     */
     private void creacionBoton() {
         //Se crea el boton 
         JButton boton = new JButton("Iniciar Carrera");
@@ -280,16 +323,16 @@ public class Ventana extends JFrame {
         boton.setBounds(30, 40, 150, 30);
         //Se agrega al panel
         panel.add(boton);
-
+        //evento del boton
         ActionListener accion = new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                //Inicia el objeto de la clase equipo, son tres equipos
                 Equipo equipo1 = new Equipo(1);
                 Equipo equipo2 = new Equipo(2);
                 Equipo equipo3 = new Equipo(3);
-                
+                //Inicializa los hilos, les envia el jframe, la posicion inicial, el numero del atleta, y el equipo que pertenece
                 j1 = new Hilo(Ventana.this ,0,1,equipo1);
                 j2 = new Hilo(Ventana.this,333,2,equipo1);
                 j3 = new Hilo(Ventana.this,666,3,equipo1);

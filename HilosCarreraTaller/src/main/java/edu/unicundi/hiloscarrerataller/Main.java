@@ -6,8 +6,8 @@
 package edu.unicundi.hiloscarrerataller;
 
 /**
- *
- * @author johan
+ * Clase principal que ejecuta el programa
+ * @author Johan Zambrano, Camilo Tinoco
  */
 public class Main {
     public static void main(String[] args) {

@@ -6,13 +6,19 @@
 package edu.unicundi.hiloscarrerataller;
 
 /**
- *
- * @author johan
+ * Clase que pone en funcionamiento el programa una vez haya sido invocado
+ * @author Johan Zambrano, Camilo Tinoco
  */
 public class Principal {
+    /**
+     * Constructor principal
+     */
     public Principal(){
         inicio();
     }
+    /**
+     * Invoca la clase Ventana para empezar a pintar
+     */
     public void inicio(){
         Ventana v = new Ventana();
         v.setVisible(true); //se hace visible la ventana

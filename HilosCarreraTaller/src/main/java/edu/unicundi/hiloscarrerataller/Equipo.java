@@ -6,20 +6,32 @@
 package edu.unicundi.hiloscarrerataller;
 
 /**
- *
- * @author johan
+ * Clase comun para los hilos, tienen el número del equipo y la posicion en la que va el equipo en el momento de la carrera
+ * @author Johan Zambrano, Camilo Tinoco
  */
 public class Equipo {
-    
+    /**
+     * Guarda el número del equipo
+     */
     public int equipo;
-    
+    /**
+     * Guarda la posición del equipo en el momento de la carrera
+     */
     public int posicion;
     
+    /**
+     * Constructor principal
+     * @param equipo Guarda el número del equipo
+     */
     public Equipo(int equipo){
         this.equipo = equipo;
         this.posicion = 0;
     }
 
+    /**
+     * Evento sincronizado, retorna el atleta que debe estar corriendo en la carrera de acuerdo a la posicion del equipo
+     * @return atleta que debe estar corriendo
+     */
     public synchronized int imprimirUbicacion(){        
         int jugador=0;
         if(getPosicion()<=333){
